@@ -22,6 +22,18 @@ class Driver
     }
 }
 
+
+class User {
+    String id;
+    String pickupLocation;
+
+    User(String id, String pickupLocation) {
+        this.id = id;
+        this.pickupLocation = pickupLocation;
+    }
+}
+
+
 class RideSharingETA
 {
   public static void mian(String[] args)throwa InterruptedException
