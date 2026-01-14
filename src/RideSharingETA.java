@@ -69,6 +69,13 @@ class RideSharingETA
 
         ExecutorService executor = Executors.newFixedThreadPool(4);
 
+        for (User user : users) {
+            executor.submit(() -> {
+                Driver nearestDriver = findNearestDriver(user, drivers, cityMap);
+                int eta = computeDistance(nearestDriver.currentLocation, user.pickupLocation, cityMap);
+                System.out.println("Nearest driver to " + user.id + " is " + nearestDriver.id + " with ETA " + eta + " mins");
+            });
+        }
 
     }
 }
