@@ -56,6 +56,8 @@ class DriverETA {
 
 class RideSharingETA
 {
+    private static ConcurrentHashMap<String, Integer> distanceCache = new ConcurrentHashMap<>();
+
     public static void mian(String[] args)throwa InterruptedException
     {
         Map<String, List<Edge>> cityMap = new HashMap<>();
