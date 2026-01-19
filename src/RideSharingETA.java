@@ -58,6 +58,14 @@ class RideSharingETA
 {
     private static ConcurrentHashMap<String, Integer> distanceCache = new ConcurrentHashMap<>();
 
+    public static int computeDistance(String from, String to, Map<String, List<Edge>> cityMap)
+    {
+        String cacheKey = from + "-" + to;
+        if (distanceCache.containsKey(cacheKey))
+            return distanceCache.get(cacheKey);
+
+    }
+
     public static void mian(String[] args)throwa InterruptedException
     {
         Map<String, List<Edge>> cityMap = new HashMap<>();
