@@ -72,18 +72,21 @@ class RideSharingETA
         queue.add(from);
         visited.put(from, 0);
 
-        while (!queue.isEmpty()) {
+        while (!queue.isEmpty())
+        {
             String current = queue.poll();
             int currentTime = visited.get(current);
 
-            if (current.equals(to)) {
+            if (current.equals(to))
+            {
                 distanceCache.put(cacheKey, currentTime);
                 return currentTime;
             }
 
             List<Edge> neighbors = cityMap.getOrDefault(current, new ArrayList<>());
             for (Edge edge : neighbors) {
-                if (!visited.containsKey(edge.destination)) {
+                if (!visited.containsKey(edge.destination))
+                {
                     visited.put(edge.destination, currentTime + edge.travelTime);
                     queue.add(edge.destination);
                 }
